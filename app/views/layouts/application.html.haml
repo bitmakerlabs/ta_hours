@@ -27,17 +27,19 @@
             %span.icon-bar
           %a.brand(href="#") TaHours
           .container.nav-collapse
-            %ul.nav
             .pull-right
               - if current_user
                 .btn-group
-                  %a.btn.dropdown-toggle{:"data-toggle" => "dropdown"}
+                  %a.btn.dropdown-toggle(data-toggle="dropdown")
                     .profile
                       %img{:src => current_user.image}
                       Welcome,
                       = current_user.name
                       %span.caret
                   %ul.dropdown-menu
+                    - if current_user.has_role? :teacher
+                      %li= link_to 'My Hours', '#'
+                      %li.divider
                     %li= link_to 'Logout', signout_path
 
               - else

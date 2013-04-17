@@ -43,6 +43,7 @@ gem 'thin'
 gem 'newrelic_rpm'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'rolify'
 
 group :tools do
   gem 'guard'
