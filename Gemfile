@@ -41,6 +41,8 @@ gem "twitter-bootstrap-rails"
 gem 'thin'
 
 gem 'newrelic_rpm'
+gem 'omniauth'
+gem 'omniauth-github'
 
 group :tools do
   gem 'guard'

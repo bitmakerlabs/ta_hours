@@ -18,9 +18,9 @@
 
 
   %body
-    .navbar.navbar-fluid-top
+    .navbar.navbar-fixed-top
       .navbar-inner
-        .container-fluid
+        .container
           %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
             %span.icon-bar
             %span.icon-bar
@@ -29,16 +29,28 @@
           .container.nav-collapse
             %ul.nav
             .pull-right
-              = link_to 'Sign in with GitHub', '#', {:class => 'btn btn-primary'}
+              - if current_user
+                .btn-group
+                  %a.btn.dropdown-toggle{:"data-toggle" => "dropdown"}
+                    .profile
+                      %img{:src => current_user.image}
+                      Welcome,
+                      = current_user.name
+                      %span.caret
+                  %ul.dropdown-menu
+                    %li= link_to 'Logout', signout_path
 
-    .container-fluid
+              - else
+                = link_to 'Sign in with GitHub', '/auth/github', class: 'btn btn-primary'
 
-      .row-fluid
+    .container
+
+      .row
         .span12
           = bootstrap_flash
 
       = yield
-    
+
       %footer
         %p &copy; Company 2013
     /
