@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417154830) do
+ActiveRecord::Schema.define(:version => 20130417230714) do
+
+  create_table "office_hours", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "day"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "office_hours", ["user_id"], :name => "index_office_hours_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +32,16 @@ ActiveRecord::Schema.define(:version => 20130417154830) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "slots", :force => true do |t|
+    t.integer  "office_hour_id"
+    t.datetime "time"
+    t.integer  "length"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "slots", ["office_hour_id"], :name => "index_slots_on_office_hour_id"
 
   create_table "users", :force => true do |t|
     t.string   "provider"

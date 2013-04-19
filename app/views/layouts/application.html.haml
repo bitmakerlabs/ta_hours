@@ -38,7 +38,7 @@
                       %span.caret
                   %ul.dropdown-menu
                     - if current_user.has_role? :teacher
-                      %li= link_to 'My Hours', '#'
+                      %li= link_to 'My Office Hours', '#'
                       %li.divider
                     %li= link_to 'Logout', signout_path
 

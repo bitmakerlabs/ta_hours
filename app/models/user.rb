@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   rolify
   attr_accessible :name, :provider, :uid
 
+  has_many :office_hours
+
   def self.create_with_omniauth auth
     create! do |user|
       user.provider = auth.provider
