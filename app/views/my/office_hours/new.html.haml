@@ -1,0 +1,28 @@
+.row
+  .span8.offset2
+
+    %h1 New Office Hours
+
+    =form_for [:my, @hour], :html => {:class => 'form-horizontal'} do |f|
+      .control-group
+
+        =f.label :day, :class => 'control-label'
+        .controls
+          .input-append
+            =f.text_field :day
+            %a.btn.calendar
+              %i.icon-calendar
+
+      .control-group
+        =f.label :num_of_slots, :class => 'control-label'
+        .controls
+          =f.number_field :num_of_slots
+
+      .control-group
+        =f.label :length, :class => 'control-label'
+        .controls
+          =f.number_field :length
+
+      .form-actions
+        =f.submit :class => 'btn btn-primary'
+

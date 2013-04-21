@@ -8,7 +8,7 @@ describe OfficeHour do
     start_time = DateTime.new(2013, 1, 1, 9, 0, 0, '+0')
     num_of_slots = 8
 
-    oh = user.office_hours.create! day: today, num_of_slots: num_of_slots, start_time: start_time
+    oh = user.hours.create! day: today, num_of_slots: num_of_slots, start_time: start_time
 
     oh.slots.length.should eq num_of_slots
 

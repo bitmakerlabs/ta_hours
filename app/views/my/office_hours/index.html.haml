@@ -1,0 +1,12 @@
+.row
+  .span3
+
+    #my-hours
+      %h1 My Hours
+      =link_to new_my_office_hour_path, class: 'btn btn-primary', id: 'new-hours' do
+        %i.icon-white.icon-plus
+
+
+      -@hours.each do |h|
+        .hour
+          =h.day

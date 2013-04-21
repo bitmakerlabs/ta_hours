@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   rolify
   attr_accessible :name, :provider, :uid
 
-  has_many :office_hours
+  has_many :hours, class_name: 'OfficeHour'
 
   def self.create_with_omniauth auth
     create! do |user|
