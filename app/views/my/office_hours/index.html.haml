@@ -9,4 +9,5 @@
 
       -@hours.each do |h|
         .hour
-          =h.day
+          =link_to [:my, h] do
+            =h.day.strftime('%d/%m/%y')

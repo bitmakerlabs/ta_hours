@@ -4,6 +4,10 @@ class My::OfficeHoursController < My::MyController
     @hours = current_user.hours
   end
 
+  def show
+    @hour = current_user.hours.find params[:id]
+  end
+
   def new
     @hour = OfficeHour.new
   end

@@ -1,0 +1,10 @@
+.row
+  .span12
+    %h1
+      Office Hours for
+      =@hour.day.strftime('%d/%m/%y')
+
+    .slots
+      -@hour.slots.each do |s|
+        .slot
+          =s.time.strftime('%H:%M')
