@@ -9,9 +9,7 @@
         =f.label :day, :class => 'control-label'
         .controls
           .input-append
-            =f.text_field :day
-            %a.btn.calendar
-              %i.icon-calendar
+            =f.text_field :day, :value => DateTime.now.strftime('%d/%m/%Y')
 
       .control-group
         =f.label :num_of_slots, :class => 'control-label'
@@ -21,7 +19,15 @@
       .control-group
         =f.label :length, :class => 'control-label'
         .controls
-          =f.number_field :length
+          =f.number_field :length, :step => 15
+
+      .control-group
+        =label_tag :start_time, 'Start Time', :class => 'control-label'
+        .controls
+          .input-append.bootstrap-timepicker
+            =text_field_tag :start_time
+            .add-on.btn
+              %i.icon-time
 
       .form-actions
         =f.submit :class => 'btn btn-primary'

@@ -31,6 +31,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-sass-rails'
+gem 'bootstrap-timepicker-rails'
 
 gem 'haml-rails'
 
